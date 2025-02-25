@@ -10,12 +10,12 @@ export const TimeUnit = ({
   value: number;
   currentFramework: string;
 }) => (
-  <div className="flex flex-col items-center min-w-[80px]">
-    <div className="text-white text-5xl font-bold mb-2 tabular-nums">
+  <div className="flex flex-col items-center min-w-[80px] md:min-w-[90px] bg-black/20 backdrop-blur-sm rounded-lg p-3 border border-white/10">
+    <div className="text-white text-3xl md:text-4xl font-bold mb-1 tabular-nums">
       <NumberRotation number={value} />
     </div>
     <div
-      className={cn("text-xs font-medium tracking-wider uppercase", {
+      className={cn("text-xs md:text-sm font-bold tracking-widest uppercase", {
         "text-purple-300": currentFramework === "qwik",
         "text-sky-300": currentFramework === "safari",
         "text-yellow-300": currentFramework === "chrome",

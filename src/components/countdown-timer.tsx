@@ -19,7 +19,7 @@ export const CountdownTimer = ({
   }, []);
 
   return (
-    <div className={"text-center flex gap-[10px]"}>
+    <div className="flex gap-2 md:gap-4 p-2 rounded-xl bg-gradient-to-b from-white/5 to-transparent">
       <TimeUnit
         label="DAYS"
         value={countdown.days}

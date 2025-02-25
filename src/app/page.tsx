@@ -9,9 +9,6 @@ import { CountdownTimer } from "@/components/countdown-timer";
 import { Cursor } from "@/components/cursor";
 import SocialFooter from "@/components/SocialFooter";
 
-// Note: We're removing the Next.js font module approach
-// and using the CSS @font-face declarations you've added to your CSS file instead
-
 export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(frameworks[0]);
   const [showBackground, setShowBackground] = useState(false);
@@ -32,11 +29,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="h-screen flex flex-col relative overflow-hidden">
       {/* Background Elements */}
       <div
         className={cn(
-          "fixed inset-0 transition-color delay-100 duration-700 opacity-25",
+          "fixed inset-0 transition-colors delay-100 duration-700 opacity-25",
           {
             "bg-purple-300": currentFramework === "qwik",
             "bg-sky-300": currentFramework === "safari",
@@ -55,14 +52,14 @@ export default function Home() {
           backgroundSize: "30px",
           backgroundImage: `url(${assets.square})`,
         }}
-        className="fixed inset-0 opacity-30"
+        className="fixed inset-0 opacity-30 [mask-image:linear-gradient(to_bottom,white,transparent)]"
       />
       <Image
         width={1200}
         height={1200}
         role="presentation"
         alt="gradient background"
-        className="fixed inset-0 w-screen h-screen object-cover"
+        className="fixed inset-0 w-screen h-screen object-cover opacity-60"
         src={assets.gradient}
       />
       <div
@@ -73,14 +70,14 @@ export default function Home() {
       />
 
       {/* Main Content */}
-      <main className="flex-grow">
-        <div className="max-w-7xl mt-20 mx-auto px-4">
-          <div className="flex flex-col items-center relative z-10">
+      <main className="flex-grow flex items-center justify-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col items-center">
             {/* Logo */}
-            <div className="mb-12 transform hover:scale-105 transition-transform duration-300">
+            <div className="mb-8 transform hover:scale-105 transition-transform duration-300">
               <Image
                 alt="NYXIS logo"
-                className="w-24 h-auto"
+                className="w-20 h-auto drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300"
                 width={100}
                 height={100}
                 src="/svgviewer-output.png"
@@ -91,11 +88,11 @@ export default function Home() {
             {/* Heading */}
             <h1
               style={{ fontFamily: "'Lemon Milk', sans-serif" }}
-              className="text-4xl md:text-6xl max-w-3xl text-center leading-snug mb-12 font-bold"
+              className="text-3xl md:text-5xl max-w-3xl text-center leading-snug mb-6 font-bold tracking-tight"
             >
-              <span className="block mb-4">On A Move Your Style</span>
+              <span className="block mb-2 text-white/90">On A Move Your Style</span>
               <span
-                className={cn("transition-colors duration-200", {
+                className={cn("transition-colors duration-200 relative", {
                   "text-purple-300": currentFramework === "qwik",
                   "text-sky-300": currentFramework === "safari",
                   "text-yellow-300": currentFramework === "chrome",
@@ -108,28 +105,31 @@ export default function Home() {
                 })}
               >
                 Define Your Future
+                <span className="absolute -inset-1 bg-white/10 rounded-lg blur-xl opacity-25"></span>
               </span>
             </h1>
 
             {/* Sub heading */}
             <p 
               style={{ fontFamily: "'Lemon Milk', sans-serif" }}
-              className="mb-8 text-center text-gray-300 text-xl font-medium"
-            >BLUAWAY is launching with exclusive drops and top-tier designs. Don’t miss out—be there when the game changes! #WeGrowTheGame
+              className="mb-8 text-center text-gray-300/90 text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed"
+            >
+              BLUAWAY is launching with exclusive drops and top-tier designs. Don &apos t miss out—be there when the game changes! #WeGrowTheGame
             </p>
 
             {/* Countdown Timer */}
-            <div className="mb-12">
+            <div className="mb-8 transform hover:scale-105 transition-all duration-300">
               <CountdownTimer currentFramework={currentFramework} />
             </div>
 
             {/* Claim ticket button */}
-            <div className="mb-8">
+            <div className="mb-4 relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
               <button
                 ref={buttonRef}
                 style={{ fontFamily: "'Lemon Milk', sans-serif" }}
                 className={cn(
-                  "text-black px-8 py-4 rounded-md text-lg font-bold transition-all duration-200 hover:scale-105 hover:shadow-lg",
+                  "relative px-6 py-3 rounded-md text-base md:text-lg font-bold transition-all duration-200 hover:scale-105 hover:shadow-xl shadow-md",
                   {
                     "bg-purple-300": currentFramework === "qwik",
                     "bg-sky-300": currentFramework === "safari",
