@@ -90,7 +90,7 @@ export default function Home() {
               style={{ fontFamily: "'Lemon Milk', sans-serif" }}
               className="text-3xl md:text-5xl max-w-3xl text-center leading-snug mb-6 font-bold tracking-tight"
             >
-              <span className="block mb-2 text-white/90">On A Move Your Style</span>
+              <span className="block mb-2 text-white/90">On a move, your style</span>
               <span
                 className={cn("transition-colors duration-200 relative", {
                   "text-purple-300": currentFramework === "qwik",
@@ -103,8 +103,7 @@ export default function Home() {
                   "text-red-300": currentFramework === "mobile",
                   "text-neutral-300": currentFramework === "desktop",
                 })}
-              >
-                Define Your Future
+              > defines your future
                 <span className="absolute -inset-1 bg-white/10 rounded-lg blur-xl opacity-25"></span>
               </span>
             </h1>
